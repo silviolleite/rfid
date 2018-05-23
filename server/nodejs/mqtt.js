@@ -4,20 +4,12 @@ const mqtt = require('mqtt')
 
 const client = mqtt.connect(`mqtt://${config.broker.host}`);
 
-const rfidPingTopic = '/empresas/douglaszuqueto/catraca/entrada/ping';
-const rfidPongTopic = '/empresas/douglaszuqueto/catraca/entrada/pong';
+const rfidPingTopic = '/controle/ping';
+const rfidPongTopic = '/controle/pong';
 
 client.on('connect', () => {
   console.log(`Connection successfully to ${config.broker.host}`);
   client.subscribe(rfidPingTopic);
-});
-
-client.on('message', (topic, message) => {
-  if (rfidPingTopic !== topic) return;
-
-  const tag = message.toString();
-
-  authorizeRfid(topic, tag);
 });
 
 const authorizeRfid = (topic, tag) => {
@@ -29,6 +21,16 @@ const authorizeRfid = (topic, tag) => {
     .catch((err) => console.log(err));
 
 };
+
+client.on('message', (topic, message) => {
+  if (rfidPingTopic !== topic) return;
+
+  const tag = message.toString();
+
+  authorizeRfid(topic, tag);
+});
+
+
 const formatPayload = (result) => {
   const payload = {
     'data': result,

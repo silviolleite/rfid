@@ -1,4 +1,4 @@
-const apiPath = 'http://127.0.0.1:3000/api';
+const apiPath = 'http://localhost:3000/api';
 
 const endpoints = {
   users: `${apiPath}/users`,
@@ -6,10 +6,12 @@ const endpoints = {
   logs: `${apiPath}/logs`,
 };
 
+
 const mqttConfig = {
-  broker: 'broker.iot-br.com',
-  topic: '/empresas/douglaszuqueto/catraca/entrada/ping',
-  port: 8083
+  broker: 'broker.hivemq.com',
+  //broker: 'broker.iot-br.com',
+  topic: '/controle/ping',
+  port: 8000
 };
 
 const http = axios.create({

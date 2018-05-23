@@ -1,6 +1,5 @@
 {
   "name": "douglaszuqueto-rfid",
-  "version": "1.0",
   "homepage": "http://rfid.iot-br.com",
   "author": "Douglas Zuqueto <douglas.zuqueto@gmail.com> (https://douglaszuqueto.com)",
   "description": "Projeto com objetivo de autenticar/autorizar usuários a partir de Tags RFID utilizando Banco de Dados",

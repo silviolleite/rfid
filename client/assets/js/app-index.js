@@ -28,16 +28,19 @@ mqtt.onConnectionLost = onConnectionLost;
 mqtt.onMessageArrived = onMessageArrived;
 
 const onSuccess = () => {
+  console.log('Brocker Connected')
   mqtt.subscribe(mqttConfig.topic, {qos: 1});
 };
 
 const onFailure = (message) => {
   console.log(`Connection failed: ${message.errorMessage}`);
+ 
 };
 
 const connect = () => {
   const options = {
     timeout: 3,
+    keepAliveInterval: 5,
     onSuccess: onSuccess,
     onFailure: onFailure
   };
