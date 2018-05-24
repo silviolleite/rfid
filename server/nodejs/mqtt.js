@@ -1,3 +1,4 @@
+console.log('entrou!');
 const mqtt = require('mqtt')
   , request = require('request-promise')
   , config = require('./config/config');
