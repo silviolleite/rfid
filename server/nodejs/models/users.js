@@ -1,6 +1,6 @@
 const db = require('./db');
 
-const table = 'users';
+const table = 'core_user';
 
 const all = () => {
   return db.all(table);

@@ -49,8 +49,8 @@ const createLog = (payload) => {
   if (!payload.data.tag) return payload.status;
 
   const log = {
-    id_user: payload.data.id_user,
-    id_tag: payload.data.id,
+    user_id: payload.data.user_id,
+    tag_id: payload.data.id,
     status: payload.status
   };
 

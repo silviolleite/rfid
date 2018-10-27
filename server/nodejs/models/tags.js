@@ -1,6 +1,6 @@
 const db = require('./db');
 
-const table = 'tags';
+const table = 'core_tag';
 
 const all = () => {
   return db.all(table);
@@ -15,7 +15,7 @@ const searchByTag = (tag) => {
 };
 
 const create = (data) => {
-  const query = `INSERT INTO ${table} (id_user, tag) VALUES (1, '${data.tag}');`;
+  const query = `INSERT INTO ${table} (user_id, tag) VALUES (1, '${data.tag}');`;
 
   return db.query(query);
 };

@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_user` int(10) unsigned DEFAULT NULL,
-  `tag` varchar(8) DEFAULT NULL,
+  `tag` varchar(12) DEFAULT NULL,
   `state` smallint(6) NOT NULL DEFAULT '1',
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -43,7 +43,11 @@ CREATE TABLE `tags` (
 -- ----------------------------
 -- Records of tags
 -- ----------------------------
-INSERT INTO `tags` VALUES ('1', '1', '12 23 45 56', '1', '2017-06-03 08:57:55', '2017-06-03 08:57:55');
+INSERT INTO `tags` VALUES ('1', 
+'1', '12 23 45 56', 
+'1', 
+'2017-06-03 08:57:55', 
+'2017-06-03 08:57:55');
 
 
 

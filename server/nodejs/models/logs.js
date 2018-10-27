@@ -1,6 +1,6 @@
 const db = require('./db');
 
-const table = 'access_log';
+const table = 'core_access_log';
 
 const all = () => {
   return db.all(table);
@@ -11,7 +11,7 @@ const find = (id) => {
 };
 
 const create = (data) => {
-  const query = `INSERT INTO ${table} (id_user, id_tag, status) VALUES (${data.id_user}, ${data.id_tag}, ${data.status});`;
+  const query = `INSERT INTO ${table} (user_id, tag_id, status) VALUES (${data.user_id}, ${data.tag_id}, ${data.status});`;
 
   return db.query(query);
 };
