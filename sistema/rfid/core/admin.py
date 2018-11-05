@@ -4,6 +4,11 @@ from django.utils.timezone import now
 from rfid.core.models import Tag, Access_log, User
 
 
+admin.site.site_header = 'Sistema de Controle RFID'
+admin.site.site_title = "Painel Administrativo"
+admin.site.index_title = "Bem vindo ao sistema de controle RFID"
+
+
 class UserAdmin(admin.ModelAdmin):
   list_display = ('name', 'email')
 

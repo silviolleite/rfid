@@ -1,0 +1,28 @@
+.nav-item a.is-tab.is-active, a.nav-item.is-tab.is-active {
+    border-bottom: 3px solid #0a86ae;
+    color: #0a86ae;
+    padding-bottom: calc(.75rem - 3px);
+    }
+
+
+a{
+    color: #0a86ae !important;
+}
+
+
+.nav-item img {
+    max-height: 3.75rem;
+}
+
+
+
+
+.nav-left, .nav-right {
+    overflow: hidden
+}
+
+
+
+.system {
+    min-height: 450px;
+}
