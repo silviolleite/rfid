@@ -34,7 +34,6 @@ const onSuccess = () => {
 
 const onFailure = (message) => {
   console.log(`Connection failed: ${message.errorMessage}`);
- 
 };
 
 const connect = () => {

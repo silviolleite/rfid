@@ -25,4 +25,15 @@ a{
 
 .system {
     min-height: 450px;
+    margin-top: 80px;
+}
+
+
+html {
+    background-image: url('../img/bg.png');
+    background-size: fixed;
+}
+
+.all {
+    background: #ffffff;
 }
