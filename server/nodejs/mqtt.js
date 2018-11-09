@@ -13,8 +13,8 @@ client.on('connect', () => {
   client.subscribe(rfidPingTopic);
 });
 
-const authorizeRfid = (topic, tag) => {
-  request(`${config.api.endpoints.tags}tag/${tag}`)
+const authorizeRfid = (topic, tag, place) => {
+  request(`${config.api.endpoints.tags}tag/${tag}/${place}`)
     .then((data) => JSON.parse(data))
     .then((result) => formatPayload(result))
     .then((payload) => createLog(payload))
@@ -25,10 +25,11 @@ const authorizeRfid = (topic, tag) => {
 
 client.on('message', (topic, message) => {
   if (rfidPingTopic !== topic) return;
+  const msg = (message.toString()).split("-", 2);
+  const tag = msg[0];
+  const place = msg[1]
 
-  const tag = message.toString();
-
-  authorizeRfid(topic, tag);
+  authorizeRfid(topic, tag, place);
 });
 
 

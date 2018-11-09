@@ -13,7 +13,7 @@ const show = (req, res) => {
 };
 
 const searchByTag = (req, res) => {
-  return model.searchByTag(req.params.tag)
+  return model.searchByTag(req.params.tag, req.params.place)
     .then((data) => {
       const tag = data[0];
 

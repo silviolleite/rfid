@@ -5,7 +5,7 @@ const express = require('express')
 router
   .get('/', controller.index)
   .get('/:id', controller.show)
-  .get('/tag/:tag', controller.searchByTag)
+  .get('/tag/:tag/:place', controller.searchByTag)
   .post('/', controller.create)
   .put('/:id', controller.update)
   .delete('/:id', controller.remove);
