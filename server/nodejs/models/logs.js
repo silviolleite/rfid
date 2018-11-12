@@ -4,7 +4,7 @@ const table = 'core_access_log';
 
 const all = () => {
   //return db.all(table);
-  const query = 'SELECT l.id, l.status, DATE_FORMAT(l.created_at,\'%d %b %Y %T\') as created_at, u.name as id_user, t.tag as id_tag FROM `core_access_log` as l INNER JOIN core_user as u ON l.user_id = u.id INNER JOIN core_tag as t ON l.tag_id = t.id ORDER BY l.created_at DESC LIMIT 5'
+  const query = 'SELECT l.id, l.status, DATE_FORMAT(l.created_at,\'%d %b %Y %T\') as created_at, u.name as id_user, t.tag as id_tag, p.id as place, k.name as local FROM `core_access_log` as l INNER JOIN core_user as u ON l.user_id = u.id INNER JOIN core_tag as t ON l.tag_id = t.id INNER JOIN core_tag_places as p ON p.tag_id = l.tag_id INNER JOIN core_place as k ON p.place_id = k.id ORDER BY l.created_at DESC LIMIT 5 '
   return db.query(query)
 };
 

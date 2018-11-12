@@ -11,7 +11,7 @@ const find = (id) => {
 };
 
 const searchByTag = (tag, place) => {
-  return db.query(`SELECT t.id, t.tag, t.user_id, t.state, p.place_id  FROM ${table} as a, core_tag_places as p WHERE tag = '${tag}' AND p.tag_id = '${tag}' AND p.place_id = '${place}'`)
+  return db.query(`SELECT t.id, t.tag, t.user_id, t.state, p.place_id  FROM ${table} t, core_tag_places as p WHERE tag = '${tag}' AND p.tag_id = t.id AND p.place_id = '${place}'`)
 };
 
 const create = (data) => {

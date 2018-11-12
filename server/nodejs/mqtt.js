@@ -25,6 +25,7 @@ const authorizeRfid = (topic, tag, place) => {
 
 client.on('message', (topic, message) => {
   if (rfidPingTopic !== topic) return;
+  console.log('teste: '+ message)
   const msg = (message.toString()).split("-", 2);
   const tag = msg[0];
   const place = msg[1]
