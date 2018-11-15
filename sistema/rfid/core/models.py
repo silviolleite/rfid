@@ -45,9 +45,11 @@ class Tag(models.Model):
 class Access_log(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='usuário')
     tag = models.ForeignKey('Tag', on_delete=models.CASCADE, verbose_name='tag')
+    place = models.ForeignKey('Place', on_delete=models.CASCADE, verbose_name='local')
     status = models.SmallIntegerField('status')
     created_at = models.DateTimeField('criado em', auto_now_add=True, null=True)
     updated_at = models.DateTimeField('atualizado em', auto_now=True, blank=True)
+    access_type = models.SmallIntegerField('tipo', default=1, null=True, blank=True)
 
     class Meta:
         verbose_name = 'log'

@@ -29,10 +29,10 @@ a{
 }
 
 
-html {
-    background-image: url('../img/bg.png');
-    background-size: fixed;
-}
+/*html {*/
+    /*background-image: url('../img/bg.png');*/
+    /*background-size: fixed;*/
+/*}*/
 
 .all {
     background: #ffffff;

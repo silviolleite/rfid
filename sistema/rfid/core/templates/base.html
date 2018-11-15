@@ -2,90 +2,92 @@
 <!doctype html>
 <html lang="pt_br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sistema de Controle RFID</title>
-    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/theme.css' %}">
-    {% block bootstrap3_extra_head %}
-    <link rel="icon" href="{% static 'img/favicon.ico' %}">
-    {% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sistema de Controle RFID</title>
+  <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/theme.css' %}">
+  {% block bootstrap3_extra_head %}
+  <link rel="icon" href="{% static 'img/favicon.ico' %}">
+  {% endblock %}
 </head>
 <body>
 <div class="container all">
-    <div class="container">
-        <nav class="nav">
-            <div class="nav-left">
-                <a class="nav-item is-brand" href="./index.html">
-                    <img src="{% static 'img/rfid_logo.gif' %}" alt="RFID - Controle de Acesso">
-                </a>
-                <a class="nav-item is-tab is-active" href="./index.html">
-                    <span class="icon is-medium"><i class="fa fa-home"></i></span>
-                    <span>Home</span>
-                </a>
-            </div>
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item is-brand" href="./index.html">
+          <img src="{% static 'img/rfid_logo.gif' %}" alt="RFID - Controle de Acesso">
+        </a>
+        <a class="nav-item is-tab is-active" href="./index.html">
+          <span class="icon is-medium"><i class="fa fa-home"></i></span>
+          <span>Home</span>
+        </a>
+      </div>
 
-            <div id="nav-menu" class="nav-right nav-menu">
-                <div class="nav-item">
-                    <a class="nav-item" target="_blank"
-                       href="/admin">
+      <div id="nav-menu" class="nav-right nav-menu">
+        <div class="nav-item">
+          <a class="nav-item" target="_blank"
+             href="/admin">
                   <span class="icon is-medium">
                     <i class="fa fa-user"></i>
                   </span>
-                        <span>Área Administrativa</span>
-                    </a>
-                </div>
-            </div>
+            <span>Área Administrativa</span>
+          </a>
+        </div>
+      </div>
 
-        </nav>
+    </nav>
+  </div>
+  <br>
+  <br>
+  <main class="container">
+    <div class="columns">
+      <div class="column card">
+        <div class="card-content">
+          <p class="subtitle has-text-centered">
+            Última tag autenticada<br>
+          <p id="last-tag" style="text-align: center; font-size: 150%">--------</p>
+          <p id="status" style="text-align: center"></p>
+          </p>
+        </div>
+        <footer class="card-footer">
+          <table class="table">
+            <thead>
+            <tr>
+              <th colspan="7" style="text-align: center;">Últimos logs de acessos</th>
+            </tr>
+            <tr>
+              <th>#</th>
+              <th>Usuário</th>
+              <th>Tag</th>
+              <th>Local</th>
+              <th>Status</th>
+              <th>Acesso</th>
+              <th>Data</th>
+            </tr>
+            </thead>
+            <tbody id="logs-table"></tbody>
+          </table>
+        </footer>
+      </div>
     </div>
-    <br>
-    <br>
-    <main class="container system">
-        <div class="columns">
-            <div class="column is-half is-offset-one-quarter card">
-                <div class="card-content">
-                    <p class="subtitle has-text-centered">
-                        Última tag autenticada<br>
-                    <p id="last-tag" style="text-align: center">--------</p>
-                    </p>
-                </div>
-                <footer class="card-footer">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th colspan="6" style="text-align: center;">Últimos logs de acessos</th>
-                        </tr>
-                        <tr>
-                            <th>id</th>
-                            <th>usuário</th>
-                            <th>tag</th>
-                            <th>Local</th>
-                            <th>status</th>
-                            <th>data</th>
-                        </tr>
-                        </thead>
-                        <tbody id="logs-table"></tbody>
-                    </table>
-                </footer>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="">
-            <div class="has-text-centered">
-                <a href="https://douglaszuqueto.com" target="_blank">
-                    <img src="{% static 'img/rfid_logo.gif' %}" alt="RFID - Controle de Acesso">
-                </a>
-                <p>
-                    <a href="https://douglaszuqueto.com" target="_blank">2018 - Sistema de Controle RFID</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+  </main>
+  <footer>
+    <div class="">
+      <div class="has-text-centered">
+        <a href="https://douglaszuqueto.com" target="_blank">
+          <img src="{% static 'img/rfid_logo.gif' %}" alt="RFID - Controle de Acesso">
+        </a>
+        <p>
+          <a href="https://douglaszuqueto.com" target="_blank">2018 - Sistema de Controle RFID</a>
+        </p>
+      </div>
+    </div>
+  </footer>
 </div>
 <script src="{% static 'js/axios.min.js' %}"></script>
 <script src="{% static 'js/mqttws31.min.js' %}"></script>

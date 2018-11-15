@@ -26,12 +26,31 @@ class TagAdmin(admin.ModelAdmin):
 
 
 class LogAdmin(admin.ModelAdmin):
-    list_display = ('user', 'tag', 'created_at')
+    list_display = ('user', 'tag', 'place', 'created_at', 'status_text', 'access')
     date_hierarchy = 'created_at'
     list_filter = ('user', 'created_at')
+
+    def status_text(self, obj):
+        if obj.status == 1:
+            return 'Acesso Permitido'
+        return 'Acesso Negado'
+
+    status_text.short_description = 'Status'
+    
+    def access(self, obj):
+        if obj.access_type == 1:
+            return 'Entrada'
+        return 'Saída'
+
+    status_text.short_description = 'Status'
+
+
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    ordering = ('id',)
 
 
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Access_log, LogAdmin)
 admin.site.register(User, UserAdmin)
-admin.site.register(Place)
+admin.site.register(Place, PlaceAdmin)
